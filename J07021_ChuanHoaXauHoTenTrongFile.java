@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class J07021_ChuanHoaXauHoTenTrongFile {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("Input.txt"));
+        Scanner sc = new Scanner(new File("DATA.in"));
         while(true){
             String s = sc.nextLine();
             String[] arr = s.trim().split("\\s+");
@@ -27,7 +27,7 @@ public class J07021_ChuanHoaXauHoTenTrongFile {
                 }
                 chuanHoa += " ";
             }
-            System.out.println(chuanHoa);
+            System.out.println(chuanHoa.trim());
         }
     }
 }
