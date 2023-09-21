@@ -17,10 +17,10 @@ import java.util.TreeMap;
  * @author Hoàng Đình Hiếu
  */
 public class J07015_SoNguyenToTrongFileNhiPhan {
-    public static boolean ngTo(int x){
-        if(x < 2 ) return false;
-        for(int i=2;i<=Math.sqrt(x);i++){
-            if(x % i ==0) return false;
+    public static boolean ngTo(int n){
+        if( n<2) return false;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0) return false;
         }
         return true;
     }
@@ -29,19 +29,18 @@ public class J07015_SoNguyenToTrongFileNhiPhan {
         ArrayList<Integer> arr = (ArrayList<Integer>) ob.readObject();
         TreeMap<Integer,Integer> map = new TreeMap<>();
         for(Integer x : arr){
-            if(ngTo(x)){
-                if(map.containsKey(x)){
-                    map.put(x, map.get(x)+1);
-                }
-                else{
-                    map.put(x,1);
-                }
+            if(map.containsKey(x)){
+                map.put(x, map.get(x)+1);
+            }
+            else{
+                map.put(x,1);
             }
         }
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             Integer key = entry.getKey();
             Integer val = entry.getValue();
-            System.out.println(key+" "+val);
+            if(ngTo(key))
+                System.out.println(key+" "+val);
         }
     }
 }
